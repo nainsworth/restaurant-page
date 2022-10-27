@@ -43,7 +43,6 @@ body::after {
 }
 
 .content {
-  
 }
 
 .header {
@@ -97,7 +96,6 @@ body::after {
 
 .nav li:last-child:hover {
   background-color: var(--red700);
- 
 }
 
 .nav li a {
@@ -130,12 +128,27 @@ body::after {
 }
 
 .footer {
-  margin-top: auto;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--red050);
+  font-weight: bold;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footer a img {
+  width: 30px;
 }
 
 @media (max-width: 500px) {
- 
-
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -198,14 +211,14 @@ body::after {
 }
 
 @media screen and (min-width: 800px) {
-  .header{
+  .header {
     max-width: 1680px;
     margin: auto;
     background-color: rgba(0, 0, 0, 0);
     padding: 25px;
   }
 
-   .nav li a{
+  .nav li a {
     font-size: 20px;
   }
 
@@ -216,7 +229,7 @@ body::after {
   .hero h3 {
     font-size: 72px;
   }
-  
+
   .slogan {
     font-size: 24px;
   }

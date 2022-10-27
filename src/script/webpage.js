@@ -73,6 +73,23 @@ const createHeader = () => {
 };
 
 // Footer
-const createFooter = () => {};
+const createFooter = () => {
+  const footer = document.createElement("div");
+  const githubLink = document.createElement("a");
+  const githubImg = document.createElement("img");
+
+  footer.classList.add("footer");
+
+  githubLink.href = "https://www.github.com/nainsworth";
+  githubLink.target = "_blank";
+  githubLink.textContent = "NAINSWORTH";
+
+  githubImg.src = "/src/img/github.svg";
+  githubImg.alt = "github logo";
+
+  content.appendChild(footer);
+  footer.appendChild(githubLink);
+  githubLink.appendChild(githubImg);
+};
 
 export { createHeader, createFooter };

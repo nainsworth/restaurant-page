@@ -87,6 +87,7 @@ body::after {
 
 .nav li:hover {
   background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }
 
 .nav li:last-child {

@@ -1,5 +1,6 @@
 import { createHeader, createFooter } from "./webpage";
 import createHero from "./home";
+import createMenu from "./menu";
 
 const content = document.querySelector(".content");
 
@@ -7,6 +8,7 @@ const content = document.querySelector(".content");
 const loadWebpage = () => {
     createHeader();
     //createHero();
+    createMenu();
     createFooter();
 };
 

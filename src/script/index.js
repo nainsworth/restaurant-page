@@ -6,10 +6,11 @@ const content = document.querySelector(".content");
 
 // Load Webpage
 const loadWebpage = () => {
-    createHeader();
-    // createHero();
-    createMenu();
-    createFooter();
+  createHeader();
+
+  createHero();
+  createMenu();
+  createFooter();
 };
 
 export default content;

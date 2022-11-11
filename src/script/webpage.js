@@ -25,28 +25,45 @@ const createHeader = () => {
     const home = document.createElement("li");
     const menu = document.createElement("li");
     const location = document.createElement("li");
-    const online = document.createElement("li");
+    const reservation = document.createElement("li");
     const homeLink = document.createElement("a");
     const menuLink = document.createElement("a");
     const locationLink = document.createElement("a");
-    const onlineLink = document.createElement("a");
+    const reservationLink = document.createElement("a");
 
     nav.classList.add("nav");
 
     homeLink.textContent = "Home";
     menuLink.textContent = "Menu";
     locationLink.textContent = "Location";
-    onlineLink.textContent = "Order Online";
+    reservationLink.textContent = "Reserve Table";
 
     header.appendChild(nav);
     nav.appendChild(home);
     nav.appendChild(menu);
     nav.appendChild(location);
-    nav.appendChild(online);
+    nav.appendChild(reservation);
     home.appendChild(homeLink);
     menu.appendChild(menuLink);
     location.appendChild(locationLink);
-    online.appendChild(onlineLink);
+    reservation.appendChild(reservationLink);
+
+    home.addEventListener("click", (e) => {
+      if (e.target.classList.contains("active")) return;
+      console.log("home");
+    });
+    menu.addEventListener("click", (e) => {
+      if (e.target.classList.contains("active")) return;
+      console.log("menu");
+    });
+    location.addEventListener("click", (e) => {
+      if (e.target.classList.contains("active")) return;
+      console.log("location");
+    });
+    reservation.addEventListener("click", (e) => {
+      if (e.target.classList.contains("active")) return;
+      console.log("reservation");
+    });
   };
 
   // Mobile Nav

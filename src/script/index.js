@@ -7,7 +7,7 @@ const content = document.querySelector(".content");
 // Load Webpage
 const loadWebpage = () => {
     createHeader();
-    //createHero();
+    // createHero();
     createMenu();
     createFooter();
 };

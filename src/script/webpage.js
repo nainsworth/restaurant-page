@@ -3,6 +3,8 @@ import content from "./index";
 // Header
 const createHeader = () => {
   const header = document.createElement("div");
+  const nav = document.createElement("ul");
+  const logo = document.createElement("img");
 
   header.classList.add("header");
 
@@ -10,8 +12,6 @@ const createHeader = () => {
 
   // Logo
   const renderLogo = () => {
-    const logo = document.createElement("img");
-
     logo.classList.add("logo");
     logo.src = "/src/img/logo.png";
     logo.alt = "logo";
@@ -21,7 +21,6 @@ const createHeader = () => {
 
   // Nav
   const renderNav = () => {
-    const nav = document.createElement("ul");
     const home = document.createElement("li");
     const menu = document.createElement("li");
     const location = document.createElement("li");
@@ -48,20 +47,22 @@ const createHeader = () => {
     location.appendChild(locationLink);
     reservation.appendChild(reservationLink);
 
-    home.addEventListener("click", (e) => {
-      if (e.target.classList.contains("active")) return;
-      console.log("home");
+    home.addEventListener("click", () => {
+      home.classList.add("selected");
+      menu.classList.remove("selected");
+      location.classList.remove("selected");
     });
-    menu.addEventListener("click", (e) => {
-      if (e.target.classList.contains("active")) return;
-      console.log("menu");
+    menu.addEventListener("click", () => {
+      home.classList.remove("selected");
+      menu.classList.add("selected");
+      location.classList.remove("selected");
     });
-    location.addEventListener("click", (e) => {
-      if (e.target.classList.contains("active")) return;
-      console.log("location");
+    location.addEventListener("click", () => {
+      home.classList.remove("selected");
+      menu.classList.remove("selected");
+      location.classList.add("selected");
     });
-    reservation.addEventListener("click", (e) => {
-      if (e.target.classList.contains("active")) return;
+    reservation.addEventListener("click", () => {
       console.log("reservation");
     });
   };
@@ -72,6 +73,7 @@ const createHeader = () => {
     const topBar = document.createElement("span");
     const midBar = document.createElement("span");
     const lowBar = document.createElement("span");
+    const navLink = document.querySelectorAll(".nav")
 
     navToggle.classList.add("toggle-btn");
     topBar.classList.add("bar");
@@ -82,6 +84,27 @@ const createHeader = () => {
     navToggle.appendChild(topBar);
     navToggle.appendChild(midBar);
     navToggle.appendChild(lowBar);
+
+    navToggle.addEventListener("click", () => {
+      if (nav.classList.contains("active")) {
+        nav.classList.remove("active");
+      } else {
+        nav.classList.add("active");
+        navToggle.classList.add("active");
+        header.classList.add("active");
+        logo.classList.add("active");
+      }
+      console.log("test");
+    });
+
+    // navLink.forEach("click", () =>{
+    //   nav.classList.remove("active");
+    //     navToggle.classList.remove("active");
+    //     header.classList.remove("active");
+    //     logo.classList.remove("active");
+    // })
+    
+   
   };
 
   renderLogo();

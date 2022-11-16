@@ -1,15 +1,12 @@
-import { createHeader, createFooter } from "./webpage";
-import createHero from "./home";
-import createMenu from "./menu";
+import { createHeader, renderMain, createFooter } from "./webpage";
+
 
 const content = document.querySelector(".content");
 
 // Load Webpage
 const loadWebpage = () => {
   createHeader();
-
-  createHero();
-  createMenu();
+  renderMain();
   createFooter();
 };
 

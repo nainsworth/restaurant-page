@@ -1,10 +1,15 @@
 import content from "./index";
+import createHero from "./home";
+import createMenu from "./menu";
+
+const activePage = "home";
 
 // Header
 const createHeader = () => {
   const header = document.createElement("div");
   const nav = document.createElement("ul");
   const logo = document.createElement("img");
+  const navToggle = document.createElement("a");
 
   header.classList.add("header");
 
@@ -48,32 +53,48 @@ const createHeader = () => {
     reservation.appendChild(reservationLink);
 
     home.addEventListener("click", () => {
+      removeSelectedClass();
+      removeActiveClass();
       home.classList.add("selected");
-      menu.classList.remove("selected");
-      location.classList.remove("selected");
+      logo.classList.add("main");
+      
     });
     menu.addEventListener("click", () => {
-      home.classList.remove("selected");
+      removeSelectedClass();
+      removeActiveClass();
       menu.classList.add("selected");
-      location.classList.remove("selected");
+      activePage = "menu";
     });
     location.addEventListener("click", () => {
-      home.classList.remove("selected");
-      menu.classList.remove("selected");
+      removeSelectedClass();
+      removeActiveClass();
       location.classList.add("selected");
+      activePage = "location";
     });
     reservation.addEventListener("click", () => {
-      console.log("reservation");
+      removeActiveClass();
+      home.classList.add("selected");
     });
+
+    const removeSelectedClass = () => {
+      home.classList.remove("selected");
+      menu.classList.remove("selected");
+      location.classList.remove("selected");
+    };
+
+    const removeActiveClass = () => {
+      nav.classList.remove("active");
+      header.classList.remove("active");
+      logo.classList.remove("active");
+      navToggle.classList.remove("active");
+    };
   };
 
   // Mobile Nav
   const renderMobileNav = () => {
-    const navToggle = document.createElement("a");
     const topBar = document.createElement("span");
     const midBar = document.createElement("span");
     const lowBar = document.createElement("span");
-    const navLink = document.querySelectorAll(".nav")
 
     navToggle.classList.add("toggle-btn");
     topBar.classList.add("bar");
@@ -86,30 +107,26 @@ const createHeader = () => {
     navToggle.appendChild(lowBar);
 
     navToggle.addEventListener("click", () => {
-      if (nav.classList.contains("active")) {
-        nav.classList.remove("active");
-      } else {
-        nav.classList.add("active");
-        navToggle.classList.add("active");
-        header.classList.add("active");
-        logo.classList.add("active");
-      }
-      console.log("test");
+      nav.classList.add("active");
+      navToggle.classList.add("active");
+      header.classList.add("active");
+      logo.classList.add("active");
     });
-
-    // navLink.forEach("click", () =>{
-    //   nav.classList.remove("active");
-    //     navToggle.classList.remove("active");
-    //     header.classList.remove("active");
-    //     logo.classList.remove("active");
-    // })
-    
-   
   };
 
   renderLogo();
   renderNav();
   renderMobileNav();
+};
+
+// Main
+const renderMain = () => {
+  if (activePage === "home") {
+    createHero();
+  }
+  else if (activePage === "menu") {
+    createMenu();
+  }
 };
 
 // Footer
@@ -132,4 +149,4 @@ const createFooter = () => {
   githubLink.appendChild(githubImg);
 };
 
-export { createHeader, createFooter };
+export { createHeader, renderMain, createFooter };

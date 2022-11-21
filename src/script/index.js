@@ -1,15 +1,3 @@
-import { createHeader, renderMain, createFooter } from "./webpage";
-
-
-const content = document.querySelector(".content");
-
-// Load Webpage
-const loadWebpage = () => {
-  createHeader();
-  renderMain();
-  createFooter();
-};
-
-export default content;
+import loadWebpage from "./webpage"
 
 loadWebpage();

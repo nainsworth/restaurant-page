@@ -1,19 +1,18 @@
-import content from "./index";
-import createHero from "./home";
-import createMenu from "./menu";
-
-const activePage = "home";
+import loadHome from "./home.js";
+import loadMenu from "./menu.js";
 
 // Header
 const createHeader = () => {
   const header = document.createElement("div");
-  const nav = document.createElement("ul");
-  const logo = document.createElement("img");
-  const navToggle = document.createElement("a");
-
   header.classList.add("header");
 
-  content.appendChild(header);
+  const nav = document.createElement("ul");
+  nav.classList.add("nav");
+
+  const logo = document.createElement("img");
+
+  const navToggle = document.createElement("a");
+  navToggle.classList.add("toggle-btn");
 
   // Logo
   const renderLogo = () => {
@@ -27,19 +26,19 @@ const createHeader = () => {
   // Nav
   const renderNav = () => {
     const home = document.createElement("li");
-    const menu = document.createElement("li");
-    const location = document.createElement("li");
-    const reservation = document.createElement("li");
     const homeLink = document.createElement("a");
-    const menuLink = document.createElement("a");
-    const locationLink = document.createElement("a");
-    const reservationLink = document.createElement("a");
-
-    nav.classList.add("nav");
-
     homeLink.textContent = "Home";
+
+    const menu = document.createElement("li");
+    const menuLink = document.createElement("a");
     menuLink.textContent = "Menu";
+
+    const location = document.createElement("li");
+    const locationLink = document.createElement("a");
     locationLink.textContent = "Location";
+
+    const reservation = document.createElement("li");
+    const reservationLink = document.createElement("a");
     reservationLink.textContent = "Reserve Table";
 
     header.appendChild(nav);
@@ -57,19 +56,18 @@ const createHeader = () => {
       removeActiveClass();
       home.classList.add("selected");
       logo.classList.add("main");
-      
+      loadHome();
     });
     menu.addEventListener("click", () => {
       removeSelectedClass();
       removeActiveClass();
       menu.classList.add("selected");
-      activePage = "menu";
+      loadMenu();
     });
     location.addEventListener("click", () => {
       removeSelectedClass();
       removeActiveClass();
       location.classList.add("selected");
-      activePage = "location";
     });
     reservation.addEventListener("click", () => {
       removeActiveClass();
@@ -93,10 +91,11 @@ const createHeader = () => {
   // Mobile Nav
   const renderMobileNav = () => {
     const topBar = document.createElement("span");
+
     const midBar = document.createElement("span");
+
     const lowBar = document.createElement("span");
 
-    navToggle.classList.add("toggle-btn");
     topBar.classList.add("bar");
     midBar.classList.add("bar");
     lowBar.classList.add("bar");
@@ -117,36 +116,46 @@ const createHeader = () => {
   renderLogo();
   renderNav();
   renderMobileNav();
+
+  return header;
 };
 
 // Main
-const renderMain = () => {
-  if (activePage === "home") {
-    createHero();
-  }
-  else if (activePage === "menu") {
-    createMenu();
-  }
+const createMain = () => {
+  const main = document.createElement("div");
+  main.classList.add("main");
+
+  return main;
 };
 
 // Footer
 const createFooter = () => {
   const footer = document.createElement("div");
-  const githubLink = document.createElement("a");
-  const githubImg = document.createElement("img");
-
   footer.classList.add("footer");
 
+  const githubLink = document.createElement("a");
   githubLink.href = "https://www.github.com/nainsworth";
   githubLink.target = "_blank";
   githubLink.textContent = "NAINSWORTH";
 
+  const githubImg = document.createElement("img");
   githubImg.src = "/src/img/github.svg";
   githubImg.alt = "github logo";
 
-  content.appendChild(footer);
   footer.appendChild(githubLink);
   githubLink.appendChild(githubImg);
+
+  return footer;
 };
 
-export { createHeader, renderMain, createFooter };
+const loadWebpage = () => {
+  const content = document.querySelector(".content");
+
+  content.appendChild(createHeader());
+  content.appendChild(createMain());
+  content.appendChild(createFooter());
+
+  loadHome();
+};
+
+export default loadWebpage;

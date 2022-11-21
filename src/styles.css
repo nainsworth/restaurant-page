@@ -106,7 +106,13 @@ body {
   color: var(--red050);
 }
 
-/* ---------- Main / Hero ---------- */
+/* ---------- Main ---------- */
+
+.main {
+  height: 100%;
+}
+
+/* ---------- Hero ---------- */
 
 .hero {
   position: relative;

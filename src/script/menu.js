@@ -1,5 +1,3 @@
-import content from "./index";
-
 const Menu = [
   {
     title: "Chashu Ramen",
@@ -54,31 +52,35 @@ const Menu = [
 const createMenu = () => {
   const cardContainer = document.createElement("div");
   cardContainer.classList.add("card-container");
-  content.appendChild(cardContainer);
 
   const createItemCard = (item) => {
     const card = document.createElement("div");
-    const title = document.createElement("header");
-    const description = document.createElement("div");
-    const image = document.createElement("img");
-    const list = document.createElement("ul");
-    const desc1 = document.createElement("li");
-    const desc2 = document.createElement("li");
-    const desc3 = document.createElement("li");
-    const price = document.createElement("li");
-
     card.classList.add("card");
-    title.classList.add("title");
-    description.classList.add("description");
-    description.classList.add("description");
-    price.classList.add("price");
 
+    const title = document.createElement("header");
+    title.classList.add("title");
     title.textContent = item.title;
+
+    const description = document.createElement("div");
+    description.classList.add("description");
+
+    const image = document.createElement("img");
     image.src = item.imgFile;
     image.alt = item.title;
+
+    const list = document.createElement("ul");
+
+    const desc1 = document.createElement("li");
     desc1.textContent = item.desc1;
+
+    const desc2 = document.createElement("li");
     desc2.textContent = item.desc2;
+
+    const desc3 = document.createElement("li");
     desc3.textContent = item.desc3;
+
+    const price = document.createElement("li");
+    price.classList.add("price");
     price.textContent = item.price;
 
     cardContainer.appendChild(card);
@@ -93,6 +95,14 @@ const createMenu = () => {
   };
 
   for (let item of Menu) createItemCard(item);
+
+  return cardContainer;
+};
+
+const loadMenu = () => {
+  const main = document.querySelector(".main");
+  main.textContent = "";
+  main.appendChild(createMenu());
 };
 
 export default createMenu;

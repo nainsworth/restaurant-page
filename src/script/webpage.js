@@ -1,5 +1,6 @@
 import loadHome from "./home.js";
 import loadMenu from "./menu.js";
+import loadLocation from "./location.js";
 
 // Header
 const createHeader = () => {
@@ -53,6 +54,7 @@ const createHeader = () => {
       if (e.target.classList.contains("selected")) return;
       removeSelectedClass();
       location.classList.add("selected");
+      loadLocation();
     });
 
     header.appendChild(nav);
@@ -73,13 +75,12 @@ const createHeader = () => {
   // Mobile Nav
   const renderMobileNav = () => {
     const topBar = document.createElement("span");
+    topBar.classList.add("bar");
 
     const midBar = document.createElement("span");
+    midBar.classList.add("bar");
 
     const lowBar = document.createElement("span");
-
-    topBar.classList.add("bar");
-    midBar.classList.add("bar");
     lowBar.classList.add("bar");
 
     header.appendChild(navToggle);

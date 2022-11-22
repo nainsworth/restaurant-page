@@ -37,6 +37,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 /* ---------- Header ---------- */
@@ -80,6 +82,7 @@ body {
   color: var(--red050);
   padding: 8px 24px;
   font-weight: bold;
+  text-shadow: 2px 2px 3px black;
 }
 
 .selected {
@@ -92,15 +95,6 @@ body {
   cursor: pointer;
 }
 
-.nav li:last-child {
-  background-color: var(--red900);
-  border-radius: 4px;
-}
-
-.nav li:last-child:hover {
-  background-color: var(--red700);
-}
-
 .nav li a {
   text-decoration: none;
   color: var(--red050);
@@ -109,7 +103,10 @@ body {
 /* ---------- Main ---------- */
 
 .main {
-  height: 100%;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  margin: 8px;
 }
 
 /* ---------- Hero ---------- */
@@ -235,10 +232,6 @@ body {
     background-color: rgba(0, 0, 0, 0);
   }
 
-  .header.active {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-
   .logo {
     width: 15%;
     position: relative;
@@ -246,25 +239,8 @@ body {
     transform: translateX(-50%);
   }
 
-  .logo.active {
-    left: calc(50% + 8px) ;
-  }
-
-  .logo.main {
-    position: absolute;
-    transform: translateX(-50%);
-    top: 45%;
-    left: 50%;
-    width: 75%;
-    z-index: 1;
-  }
-
   .toggle-btn {
     display: flex;
-  }
-
-  .toggle-btn.active {
-    display: none;
   }
 
   .nav {
@@ -279,33 +255,6 @@ body {
     text-align: center;
   }
 
-  .nav.active {
-    display: flex;
-    position: absolute;
-    top: 75px;
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-
-  .hero {
-    background-color: rgba(0, 0, 0, 0);
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-  }
-
-  .hero h3 {
-    display: none;
-  }
-
-  .slogan {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    z-index: 1;
-  }
-
   .card-container {
     max-width: 400px;
   }
@@ -314,7 +263,6 @@ body {
 @media screen and (min-width: 800px) {
   .header {
     max-width: 1680px;
-    /* margin: auto; */
     background-color: rgba(0, 0, 0, 0);
     padding: 25px;
   }

@@ -27,64 +27,46 @@ const createHeader = () => {
   const renderNav = () => {
     const home = document.createElement("li");
     const homeLink = document.createElement("a");
+    home.classList.add("selected");
     homeLink.textContent = "Home";
+    home.addEventListener("click", (e) => {
+      if (e.target.classList.contains("selected")) return;
+      removeSelectedClass();
+      home.classList.add("selected");
+      loadHome();
+    });
 
     const menu = document.createElement("li");
     const menuLink = document.createElement("a");
     menuLink.textContent = "Menu";
+    menu.addEventListener("click", (e) => {
+      if (e.target.classList.contains("selected")) return;
+      removeSelectedClass();
+      menu.classList.add("selected");
+      loadMenu();
+    });
 
     const location = document.createElement("li");
     const locationLink = document.createElement("a");
     locationLink.textContent = "Location";
-
-    const reservation = document.createElement("li");
-    const reservationLink = document.createElement("a");
-    reservationLink.textContent = "Reserve Table";
+    location.addEventListener("click", (e) => {
+      if (e.target.classList.contains("selected")) return;
+      removeSelectedClass();
+      location.classList.add("selected");
+    });
 
     header.appendChild(nav);
     nav.appendChild(home);
     nav.appendChild(menu);
     nav.appendChild(location);
-    nav.appendChild(reservation);
     home.appendChild(homeLink);
     menu.appendChild(menuLink);
     location.appendChild(locationLink);
-    reservation.appendChild(reservationLink);
-
-    home.addEventListener("click", () => {
-      removeSelectedClass();
-      removeActiveClass();
-      home.classList.add("selected");
-      logo.classList.add("main");
-      loadHome();
-    });
-    menu.addEventListener("click", () => {
-      removeSelectedClass();
-      removeActiveClass();
-      menu.classList.add("selected");
-      loadMenu();
-    });
-    location.addEventListener("click", () => {
-      removeSelectedClass();
-      removeActiveClass();
-      location.classList.add("selected");
-    });
-    reservation.addEventListener("click", () => {
-      removeActiveClass();
-      home.classList.add("selected");
-    });
 
     const removeSelectedClass = () => {
       home.classList.remove("selected");
       menu.classList.remove("selected");
       location.classList.remove("selected");
-    };
-
-    const removeActiveClass = () => {
-      nav.classList.remove("active");
-      header.classList.remove("active");
-      logo.classList.remove("active");
-      navToggle.classList.remove("active");
     };
   };
 
@@ -104,13 +86,6 @@ const createHeader = () => {
     navToggle.appendChild(topBar);
     navToggle.appendChild(midBar);
     navToggle.appendChild(lowBar);
-
-    navToggle.addEventListener("click", () => {
-      nav.classList.add("active");
-      navToggle.classList.add("active");
-      header.classList.add("active");
-      logo.classList.add("active");
-    });
   };
 
   renderLogo();

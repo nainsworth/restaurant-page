@@ -105,4 +105,4 @@ const loadMenu = () => {
   main.appendChild(createMenu());
 };
 
-export default createMenu;
+export default loadMenu;

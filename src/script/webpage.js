@@ -7,16 +7,9 @@ const createHeader = () => {
   const header = document.createElement("div");
   header.classList.add("header");
 
-  const nav = document.createElement("ul");
-  nav.classList.add("nav");
-
-  const logo = document.createElement("img");
-
-  const navToggle = document.createElement("a");
-  navToggle.classList.add("toggle-btn");
-
   // Logo
   const renderLogo = () => {
+    const logo = document.createElement("img");
     logo.classList.add("logo");
     logo.src = "/src/img/logo.png";
     logo.alt = "logo";
@@ -26,6 +19,9 @@ const createHeader = () => {
 
   // Nav
   const renderNav = () => {
+    const nav = document.createElement("ul");
+    nav.classList.add("nav");
+
     const home = document.createElement("li");
     const homeLink = document.createElement("a");
     home.classList.add("selected");
@@ -72,26 +68,8 @@ const createHeader = () => {
     };
   };
 
-  // Mobile Nav
-  const renderMobileNav = () => {
-    const topBar = document.createElement("span");
-    topBar.classList.add("bar");
-
-    const midBar = document.createElement("span");
-    midBar.classList.add("bar");
-
-    const lowBar = document.createElement("span");
-    lowBar.classList.add("bar");
-
-    header.appendChild(navToggle);
-    navToggle.appendChild(topBar);
-    navToggle.appendChild(midBar);
-    navToggle.appendChild(lowBar);
-  };
-
   renderLogo();
   renderNav();
-  renderMobileNav();
 
   return header;
 };

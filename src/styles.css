@@ -23,6 +23,7 @@
 
 html {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -56,22 +57,6 @@ body {
   position: relative;
 }
 
-.toggle-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  margin: 8px;
-}
-
-.toggle-btn .bar {
-  height: 3px;
-  width: 100%;
-  background-color: var(--red050);
-  border-radius: 8px;
-}
-
 .nav {
   display: flex;
 }
@@ -79,9 +64,10 @@ body {
 .nav li {
   list-style-type: none;
   color: var(--red050);
-  padding: 8px 24px;
   font-weight: bold;
   text-shadow: 2px 2px 3px black;
+  width: 100px;
+  height: 35px;
 }
 
 .selected {
@@ -97,6 +83,11 @@ body {
 .nav li a {
   text-decoration: none;
   color: var(--red050);
+  height: 100%;
+  widows: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ---------- Main ---------- */
@@ -141,6 +132,7 @@ body {
   border: 2px solid var(--red900);
   width: 100%;
   justify-items: center;
+  margin: auto;
 }
 
 .card {
@@ -194,11 +186,44 @@ body {
   font-size: 1.5rem;
 }
 
-/* ---------- Comment ---------- */
+/* ---------- Location ---------- */
 
-/* ---------- Comment ---------- */
+.location {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  margin: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  border: 2px solid var(--red900);
+  gap: 18px;
+}
 
-/* ---------- Comment ---------- */
+.locationInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.locationImg {
+  width: 50%;
+}
+
+.locationDesc {
+  color: var(--red050);
+  font-size: 1.25rem;
+}
+
+.map {
+  width: 82%;
+  border-top: 3px solid var(--red900);
+  padding-top: 16px;
+}
 
 /* ---------- Footer ---------- */
 
@@ -225,41 +250,47 @@ body {
   filter: drop-shadow(2px 2px 5px black);
 }
 
+/* ---------- Mobile Devices ---------- */
+
 @media (max-width: 625px) {
   .header {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: rgba(0, 0, 0, 0);
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
   }
 
   .logo {
     width: 15%;
-    position: relative;
-    left: calc(50% - 38px);
-    transform: translateX(-50%);
+    left: 10%x;
   }
 
-  .toggle-btn {
-    display: flex;
-  }
-
-  .nav {
-    display: none;
-    padding: 8px;
-    flex-direction: column;
-    gap: 4px;
+  .hero {
     width: 100%;
-  }
-
-  .nav li {
-    text-align: center;
   }
 
   .card-container {
     max-width: 400px;
   }
+
+  .locationInfo {
+    flex-direction: column;
+  }
+
+  .locationImg {
+    width: 90%;
+  }
+
+  .locationDesc {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .map {
+    width: 90%;
+  }
 }
+
+/* ---------- Larger Devices ---------- */
 
 @media screen and (min-width: 800px) {
   .header {
@@ -286,5 +317,15 @@ body {
 
   .card-container {
     max-width: 1200px;
+  }
+
+  .location {
+    max-width: 1200px;
+    padding: 5% 0;
+  }
+
+  .locationDesc {
+    width: 30%;
+    font-size: 1.5rem;
   }
 }

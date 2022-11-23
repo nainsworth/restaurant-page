@@ -1,13 +1,34 @@
+import Favicon from "../img/fav.png";
 import Logo from "../img/logo.png";
 import GitHub from "../img/github.svg";
 import loadHome from "./home.js";
 import loadMenu from "./menu.js";
 import loadLocation from "./location.js";
 
+// Favicon
+const setFavicon = () => {
+  const head = document.querySelector("head");
+  const setFavicon = document.createElement("link");
+  setFavicon.rel = "shortcut icon";
+  setFavicon.href = Favicon;
+
+  head.appendChild(setFavicon);
+};
+
 // Header
 const createHeader = () => {
   const header = document.createElement("div");
   header.classList.add("header");
+
+  // Favicon
+  const setFavicon = () => {
+    const head = document.querySelector("head");
+    const setFavicon = document.createElement("link");
+    setFavicon.rel = "shortcut icon";
+    setFavicon.href = Favicon;
+
+    head.appendChild(setFavicon);
+  };
 
   // Logo
   const renderLogo = () => {
@@ -70,6 +91,7 @@ const createHeader = () => {
     };
   };
 
+  setFavicon();
   renderLogo();
   renderNav();
 

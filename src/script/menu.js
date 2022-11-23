@@ -1,7 +1,14 @@
+import Chashu from "../img/chashu.jpeg";
+import Tantanmen from "../img/tantanmen.jpg";
+import Miso from "../img/miso.jpg";
+import Tonkostsu from "../img/tonkostsu.jpg";
+import Shoyu from "../img/shoyu.jpg";
+import Torigara from "../img/torigara.jpg";
+
 const Menu = [
   {
     title: "Chashu Ramen",
-    imgFile: "/src/img/chashu.jpeg",
+    imgFile: Chashu,
     desc1: "Sharing Size",
     desc2: "House Special",
     desc3: "Black Soup Base",
@@ -9,7 +16,7 @@ const Menu = [
   },
   {
     title: "Spicy Tantanmen Ramen",
-    imgFile: "/src/img/tantanmen.jpg",
+    imgFile: Tantanmen,
     desc1: "Spicy Rayu Ramen",
     desc2: "Nutty Soy Milk",
     desc3: "Seasame Paste",
@@ -17,7 +24,7 @@ const Menu = [
   },
   {
     title: "Miso Ramen",
-    imgFile: "/src/img/miso.jpg",
+    imgFile: Miso,
     desc1: "Savory Spicy Miso",
     desc2: "Paste Soup Base",
     desc3: "",
@@ -25,7 +32,7 @@ const Menu = [
   },
   {
     title: "Tonkostsu Ramen",
-    imgFile: "/src/img/tonkostsu.jpg",
+    imgFile: Tonkostsu,
     desc1: "Creamy Garlic Pork",
     desc2: "Broth Soup Base",
     desc3: "",
@@ -33,7 +40,7 @@ const Menu = [
   },
   {
     title: "Wafu Shoyu Ramen",
-    imgFile: "/src/img/shoyu.jpg",
+    imgFile: Shoyu,
     desc1: "Flavorful Pork",
     desc2: "Veggie Soup Base",
     desc3: "",
@@ -41,7 +48,7 @@ const Menu = [
   },
   {
     title: "Torigara Ramen",
-    imgFile: "/src/img/torigara.jpg",
+    imgFile: Torigara,
     desc1: "Rich Chicken Broth",
     desc2: "Soup Base",
     desc3: "",

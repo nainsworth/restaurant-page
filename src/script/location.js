@@ -1,3 +1,6 @@
+import Location from "../img/location.jpeg";
+import Map from "../img/map.png";
+
 const createLocation = () => {
   const location = document.createElement("div");
   location.classList.add("location");
@@ -7,7 +10,8 @@ const createLocation = () => {
 
   const locationImg = document.createElement("img");
   locationImg.classList.add("locationImg");
-  locationImg.src = "/src/img/location.jpeg";
+  locationImg.src = Location;
+  locationImg.alt = "Location Image";
 
   const locationDesc = document.createElement("p");
   locationDesc.classList.add("locationDesc");
@@ -16,7 +20,8 @@ const createLocation = () => {
 
   const map = document.createElement("img");
   map.classList.add("map");
-  map.src = "/src/img/map.png";
+  map.src = Map;
+  map.alt = "Map Image";
 
   location.appendChild(locationInfo);
   locationInfo.appendChild(locationImg);

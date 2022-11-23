@@ -1,3 +1,5 @@
+import Logo from "../img/logo.png";
+import GitHub from "../img/github.svg";
 import loadHome from "./home.js";
 import loadMenu from "./menu.js";
 import loadLocation from "./location.js";
@@ -11,7 +13,7 @@ const createHeader = () => {
   const renderLogo = () => {
     const logo = document.createElement("img");
     logo.classList.add("logo");
-    logo.src = "/src/img/logo.png";
+    logo.src = Logo;
     logo.alt = "logo";
 
     header.appendChild(logo);
@@ -93,7 +95,7 @@ const createFooter = () => {
   githubLink.textContent = "NAINSWORTH";
 
   const githubImg = document.createElement("img");
-  githubImg.src = "/src/img/github.svg";
+  githubImg.src = GitHub;
   githubImg.alt = "github logo";
 
   footer.appendChild(githubLink);
